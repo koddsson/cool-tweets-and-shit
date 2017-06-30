@@ -12,6 +12,9 @@
             twttr.widgets.createTweet(
               tweet.id,
               document.querySelector(".tweet-container"),
+              {
+                conversation: 'none',
+              },
             )
           });
         });
