@@ -4,22 +4,18 @@
     <meta charset="UTF-8" />
     <title>Hello World</title>
     <script>
-      window.exports = {};
+      fetch('tweets.json')
+        .then(response => response.json)
+        .then(json => {
+          json.tweets.forEach(tweet => {
+            twttr.widgets.createTweet(
+              tweet.id,
+              document.querySelector(".tweet-container"),
+            )
+          });
     </script>
-    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-    <script src="https://cdn.rawgit.com/capaj/react-tweet-embed/efada0ed/dist/tweet-embed.js"></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="text/babel">
-
-      ReactDOM.render(
-        <TweetEmbed id='880511538985041922'></TweetEmbed>,
-        document.getElementById('root')
-      );
-
-    </script>
+    <div class="tweet-container"></div>
   </body>
 </html>
