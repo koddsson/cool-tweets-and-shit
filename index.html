@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hello World</title>
-    <style>
-      html, body, .tweet-container {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    </style>
-    <script src="https://platform.twitter.com/widgets.js"></script>
-    <script>
-      fetch('tweets.json')
-        .then(response => response.json())
-        .then(json => {
-          json.tweets.forEach(tweet => {
-            twttr.widgets.createTweet(
-              tweet.id,
-              document.querySelector(".tweet-container"),
-              {
-                conversation: 'none',
-              },
-            )
-          });
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World</title>
+  <meta name="viewport" content="width=device-width">
+  <style>
+    html,
+    body,
+    .tweet-container {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tweet-container {
+      background: url(frame.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  </style>
+  <script src="https://platform.twitter.com/widgets.js"></script>
+  <script>
+    fetch('tweets.json')
+      .then(response => response.json())
+      .then(json => {
+        json.tweets.forEach(tweet => {
+          twttr.widgets.createTweet(
+            tweet.id,
+            document.querySelector(".tweet-container"),
+            {
+              conversation: 'none',
+            },
+          )
         });
-    </script>
-  </head>
-  <body>
-    <div class="tweet-container"></div>
-  </body>
+      });
+  </script>
+</head>
+
+<body>
+  <div class="tweet-container"></div>
+</body>
+
 </html>
