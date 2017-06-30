@@ -6,7 +6,7 @@
     <script src="https://platform.twitter.com/widgets.js"></script>
     <script>
       fetch('tweets.json')
-        .then(response => response.json)
+        .then(response => response.json())
         .then(json => {
           json.tweets.forEach(tweet => {
             twttr.widgets.createTweet(
