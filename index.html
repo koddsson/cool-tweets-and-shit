@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hello World</title>
+    <style>
+      html, body, .tweet-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+      }
+    </style>
     <script src="https://platform.twitter.com/widgets.js"></script>
     <script>
       fetch('tweets.json')
